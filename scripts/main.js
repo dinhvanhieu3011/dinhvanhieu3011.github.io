@@ -424,7 +424,7 @@ var ranking = newRanking();
 const rowNums = [1, 2, 4, 5];
 //window.addEventListener("load", function () {
   populateRanking();
-  readFromCSV("./trainee_info_1.csv");
+  readFromCSV("./trainee_info.csv");
 //});
 // checks the URL for a ranking and uses it to populate ranking
 getRanking();
