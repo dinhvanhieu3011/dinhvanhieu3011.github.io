@@ -76,20 +76,20 @@ function convertCSVArrayToTraineeData(csvArrays) {
   trainees = csvArrays.map(function(traineeArray, index) {
     trainee = {};
     trainee.name_romanized = traineeArray[0];
-    if (traineeArray[2] === "-") {
+    //if (traineeArray[2] === "-") {
       // trainee only has hangul
-      trainee.name_hangul = traineeArray[1];
-    } else {
-      trainee.name_japanese = traineeArray[1];
-      trainee.name_hangul = traineeArray[2];
-    }
-    trainee.company = traineeArray[3];
-    trainee.grade = traineeArray[4];
-    trainee.birthyear = traineeArray[5];
-    trainee.eliminated = traineeArray[6] === 'e'; // sets trainee to be eliminated if 'e' appears in 6th col
-    trainee.top12 = traineeArray[6] === 't'; // sets trainee to top 12 if 't' appears in 6th column
-    trainee.id = parseInt(traineeArray[7]) - 1; // trainee id is the original ordering of the trainees in the first csv
-    trainee.image =trainee.name_romanized+ ".jpg";
+    //  trainee.name_hangul = traineeArray[1];
+  //  } else {
+  //    trainee.name_japanese = traineeArray[1];
+  //    trainee.name_hangul = traineeArray[2];
+//    }
+    trainee.company = traineeArray[1];
+    trainee.grade = traineeArray[2];
+  //  trainee.birthyear = traineeArray[5];
+    trainee.eliminated = traineeArray[3] === 'e'; // sets trainee to be eliminated if 'e' appears in 6th col
+    trainee.top12 = traineeArray[3] === 't'; // sets trainee to top 12 if 't' appears in 6th column
+    trainee.id = parseInt(traineeArray[5]) - 1; // trainee id is the original ordering of the trainees in the first csv
+    trainee.image =trainee.name_romanized.replace(" ", "").replace("-", "") + ".jpg";
     //  trainee.name_romanized.replace(" ", "").replace("-", "") + ".jpg";
     return trainee;
   });
